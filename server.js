@@ -1,10 +1,17 @@
 import express from 'express';
+import routes from './src/routes/postRoutes.js';
 
-const app = express();      // app = servidor
-app.listen(3000, () => {     // servidor do express eu quero que você fique ouvindo na porta 3000 (localhost:3000)
-    console.log ('Servidor escutando...');
+
+// Cria uma instância do Express, que é o framework web utilizado para criar a aplicação.
+const app = express();
+routes(app);
+
+// Inicia o servidor na porta 3000 e exibe uma mensagem no console quando o servidor estiver ouvindo.
+app.listen(3000, () => {
+  console.log('Servidor escutando...');
 });
 
-app.get('/api', (req, res) => {       //
-    res.status(200).send('Boas Vindas à imersão!');  //http://localhost:3000/api no navegador
-});
+
+
+
+
